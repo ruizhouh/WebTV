@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebTV</title>
+    <link rel="icon" href="../images/logo.PNG">
+</head>
+<link rel="stylesheet" href="../css/main.css">
+<script src="../js/vue.js"></script>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../js/code/channel.js"></script>
+<body>
+    <div id="app">
+        <div class="menu" >
+            <ul>
+                <li v-for="item in list"><a href="#">{{ item }}</a></li>
+            </ul>
+        </div>
+        <el-drawer direction="ltr" v-if="type=='直播'" :visible.sync="drawer"><channel @channel-click="channelSelect"></channel></el-drawer>
+        <div class="channel-frame" :style="{'margin-top': channelMarginTop+'px'}">
+            <iframe class="cctv" scrolling="no" allowfullscreen="true" v-if="channelUrl!=''" :src="channelUrl"></iframe>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script src="../js/code/main.js"></script>
+</html>
