@@ -24,11 +24,11 @@ Vue.component(
                     'http://tv.cctv.com/live/cctveurope/index.shtml',
                     'http://tv.cctv.com/live/cctvamerica/'
                 ],
-                indexFocus: 12
+                indexFocus: 13 // 默认打开频道，当前是新闻频道
             }
         },
         methods: {
-            channelClick: function (index) {
+            channelClick: function (index) { // 频道点击事件，点击后修改频道url为所选频道的url
                 this.$emit('channel-click',this.channelList[index])
                 this.indexFocus = index
             }
